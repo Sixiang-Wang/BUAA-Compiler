@@ -1,6 +1,6 @@
 # 编译器设计文档
 
-<img src=".\README.assets\我要成为编译高手.png" alt="我要成为编译高手" style="zoom: 25%;" /> 
+<img src="https://github.com/Sixiang-Wang/BUAA-Compiler/blob/master/%E6%88%91%E8%A6%81%E6%88%90%E4%B8%BA%E7%BC%96%E8%AF%91%E9%AB%98%E6%89%8B.png" alt="我要成为编译高手" style="zoom: 25%;" /> 
 
 ## 编译器总体设计
 
