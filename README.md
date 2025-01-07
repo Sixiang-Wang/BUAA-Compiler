@@ -1,5 +1,7 @@
 # 编译器设计文档
 
+<img src=".\README.assets\我要成为编译高手.png" alt="我要成为编译高手" style="zoom: 25%;" /> 
+
 ## 编译器总体设计
 
 ### 结构
