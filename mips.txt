@@ -1,0 +1,83 @@
+.data
+a: .word 1
+b: .word 2
+c: .word 1, 2, 3
+
+.macro GETINT()
+li $v0, 5
+syscall
+.end_macro
+
+.macro GETCHAR()
+li $v0, 12
+syscall
+.end_macro
+
+.macro PUTINT()
+li $v0, 1
+syscall
+.end_macro
+
+.macro PUTCH()
+li $v0, 11
+syscall
+.end_macro
+
+.macro PUTSTR()
+li $v0, 4
+syscall
+.end_macro
+
+.text
+jal main
+j return
+
+
+main:
+label_id_20:
+#%1 = load i32, i32* @a
+la $t0, a
+lw $t0, 0($t0)
+sw $t0, -4($sp)
+
+#%2 = load i32, i32* @b
+la $t0, b
+lw $t0, 0($t0)
+sw $t0, -8($sp)
+
+#%3 = add i32 %1, %2
+lw $t0, -4($sp)
+lw $t1, -8($sp)
+addu $t0, $t0, $t1
+sw $t0, -12($sp)
+
+#%4 = getelementptr [3 x i32], [3 x i32]* @c, i32 0, i32 1
+la $t2, c
+
+addu $t2, $t2, 4
+sw $t2, -16($sp)
+
+
+#%5 = load i32, i32* %4
+lw $t0, -16($sp)
+lw $t1, 0($t0)
+sw $t1, -20($sp)
+
+#%6 = add i32 %3, %5
+lw $t0, -12($sp)
+lw $t1, -20($sp)
+addu $t0, $t0, $t1
+sw $t0, -24($sp)
+
+#%7 = alloca i32
+
+#store i32 %6, i32* %7
+lw $t0, -24($sp)
+sw $t0, -28($sp)
+
+#ret i32 0
+li $v0, 0
+jr $ra
+
+return:
+
